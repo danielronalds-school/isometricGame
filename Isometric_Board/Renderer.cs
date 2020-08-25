@@ -13,22 +13,26 @@ namespace Isometric_Board
 
         List<IsometricTile> tiles = new List<IsometricTile>();
 
-        string[] aRow = { "f", "f", "f", "f", "f", "f", "f" };
-        string[] bRow = { "f", "", "", "", "", "", "f" };
-        string[] cRow = { "f", "", "", "", "", "", "f" };
-        string[] dRow = { "f", "", "", "", "", "", "f" };
-        string[] eRow = { "f", "", "", "", "", "", "f" };
-        string[] fRow = { "f", "", "", "", "", "", "f" };
+        string[] aRow = { "f", ".", ".", ".", ".", ".", "f" };
+        string[] bRow = { ".", ".", ".", ".", ".", ".", "f" };
+        string[] cRow = { ".", ".", ".", ".", ".", ".", "f" };
+        string[] dRow = { ".", ".", ".", ".", ".", ".", "f" };
+        string[] eRow = { ".", ".", ".", ".", ".", ".", "f" };
+        string[] fRow = { ".", ".", ".", ".", ".", ".", "f" };
         string[] gRow = { "f", "f", "f", "f", "f", "f", "f" };
 
         public Renderer()
         {
             loadIsometricGrid();
 
+            tiles.Add(new IsometricTile(new Point(grid.A[0].X, grid.A[0].Y - 23), "Test"));
+
             foreach (IsometricTile tile in tiles)
             {
                 Console.WriteLine(tile.tileID);
             }
+
+            Console.WriteLine("Total tiles: " + tiles.Count());
         }
 
         public void renderIsometricTiles(Graphics g)
@@ -41,57 +45,39 @@ namespace Isometric_Board
 
         private void loadIsometricGrid()
         {
-            for (int i = 0; i < grid.A.Length; i++) // A
+            for (int i = 0; i < grid.A.Length; i++) // 2D
             {
-                if (aRow[i] != "")
+                if (aRow[i] != "" && aRow[i] != "0" && aRow[i] != ".")
                 {
                     tiles.Add(new IsometricTile(grid.A[i], "A" + i));
                 }
-            }
 
-            for (int i = 0; i < grid.B.Length; i++) // B
-            {
-                if (bRow[i] != "")
+                if (bRow[i] != "" && bRow[i] != "0" && bRow[i] != ".")
                 {
                     tiles.Add(new IsometricTile(grid.B[i], "B" + i));
                 }
-            }
 
-            for (int i = 0; i < grid.C.Length; i++) // C
-            {
-                if (cRow[i] != "")
+                if (cRow[i] != "" && cRow[i] != "0" && cRow[i] != ".")
                 {
                     tiles.Add(new IsometricTile(grid.C[i], "C" + i));
                 }
-            }
 
-            for (int i = 0; i < grid.D.Length; i++) // D
-            {
-                if (dRow[i] != "")
+                if (dRow[i] != "" && dRow[i] != "0" && dRow[i] != ".")
                 {
                     tiles.Add(new IsometricTile(grid.D[i], "D" + i));
                 }
-            }
 
-            for (int i = 0; i < grid.E.Length; i++) // E
-            {
-                if (eRow[i] != "")
+                if (eRow[i] != "" && eRow[i] != "0" && eRow[i] != ".")
                 {
                     tiles.Add(new IsometricTile(grid.E[i], "E" + i));
                 }
-            }
 
-            for (int i = 0; i < grid.F.Length; i++) // F
-            {
-                if (fRow[i] != "")
+                if (fRow[i] != "" && fRow[i] != "0" && fRow[i] != ".")
                 {
                     tiles.Add(new IsometricTile(grid.F[i], "F" + i));
                 }
-            }
 
-            for (int i = 0; i < grid.G.Length; i++) // G
-            {
-                if (gRow[i] != "")
+                if (gRow[i] != "" && gRow[i] != "0" && gRow[i] != ".")
                 {
                     tiles.Add(new IsometricTile(grid.G[i], "G" + i));
                 }
