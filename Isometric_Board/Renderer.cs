@@ -13,12 +13,12 @@ namespace Isometric_Board
 
         List<IsometricTile> tiles = new List<IsometricTile>();
 
-        string[] aRow = { "f", ".", ".", ".", ".", ".", "f" };
-        string[] bRow = { ".", ".", ".", ".", ".", ".", "f" };
-        string[] cRow = { ".", ".", ".", ".", ".", ".", "f" };
-        string[] dRow = { ".", ".", ".", ".", ".", ".", "f" };
-        string[] eRow = { ".", ".", ".", ".", ".", ".", "f" };
-        string[] fRow = { ".", ".", ".", ".", ".", ".", "f" };
+        string[] aRow = { "f", "f", "f", "f", "f", "f", "f" };
+        string[] bRow = { "f", ".", ".", ".", ".", ".", "f" };
+        string[] cRow = { "f", ".", ".", ".", ".", ".", "f" };
+        string[] dRow = { "f", ".", ".", ".", ".", ".", "f" };
+        string[] eRow = { "f", ".", ".", ".", ".", ".", "f" };
+        string[] fRow = { "f", ".", ".", ".", ".", ".", "f" };
         string[] gRow = { "f", "f", "f", "f", "f", "f", "f" };
 
         public Renderer()
@@ -26,6 +26,20 @@ namespace Isometric_Board
             loadIsometricGrid();
 
             tiles.Add(new IsometricTile(new Point(grid.A[0].X, grid.A[0].Y - 23), "Test"));
+            tiles.Add(new IsometricTile(new Point(grid.A[0].X, grid.A[0].Y - 46), "Test"));
+            tiles.Add(new IsometricTile(new Point(grid.A[0].X, grid.A[0].Y - 69), "Test"));
+
+            tiles.Add(new IsometricTile(new Point(grid.A[6].X, grid.A[6].Y - 23), "Test"));
+            tiles.Add(new IsometricTile(new Point(grid.A[6].X, grid.A[6].Y - 46), "Test"));
+            tiles.Add(new IsometricTile(new Point(grid.A[6].X, grid.A[6].Y - 69), "Test"));
+
+            tiles.Add(new IsometricTile(new Point(grid.G[0].X, grid.G[0].Y - 23), "Test"));
+            tiles.Add(new IsometricTile(new Point(grid.G[0].X, grid.G[0].Y - 46), "Test"));
+            tiles.Add(new IsometricTile(new Point(grid.G[0].X, grid.G[0].Y - 69), "Test"));
+
+            tiles.Add(new IsometricTile(new Point(grid.G[6].X, grid.G[6].Y - 23), "Test"));
+            tiles.Add(new IsometricTile(new Point(grid.G[6].X, grid.G[6].Y - 46), "Test"));
+            tiles.Add(new IsometricTile(new Point(grid.G[6].X, grid.G[6].Y - 69), "Test"));
 
             foreach (IsometricTile tile in tiles)
             {
