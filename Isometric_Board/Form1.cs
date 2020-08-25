@@ -20,51 +20,69 @@ namespace Isometric_Board
 
         List<IsometricTile> tiles = new List<IsometricTile>();
 
+        string[] aRow = { "f", "f", "f", "f", "f", "f" };
+        string[] bRow = { "f", "f", "f", "f", "f", "f" };
+        string[] cRow = { "s", "f", "f", "f", "f", "f" };
+        string[] dRow = { "s", "f", "f", "f", "f", "f" };
+        string[] eRow = { "s", "f", "f", "f", "f", "f" };
+        string[] fRow = { "f", "s", "f", "e", "w", "f" };
+
         public Form1()
         {
             InitializeComponent();
 
-            tiles.Add(new IsometricTile(grid.A1, "A1"));
-            tiles.Add(new IsometricTile(grid.A2, "A2"));
-            tiles.Add(new IsometricTile(grid.A3, "A3"));
-            tiles.Add(new IsometricTile(grid.A4, "A4"));
-            tiles.Add(new IsometricTile(grid.A5, "A5"));
-            tiles.Add(new IsometricTile(grid.A6, "A6"));
+            loadIsometricGrid();
+        }
 
-            tiles.Add(new IsometricTile(grid.B1, "B1"));
-            //tiles.Add(new IsometricTile(grid.B2, "B2"));
-            //tiles.Add(new IsometricTile(grid.B3, "B3"));
-            //tiles.Add(new IsometricTile(grid.B4, "B4"));
-            //tiles.Add(new IsometricTile(grid.B5, "B5"));
-            tiles.Add(new IsometricTile(grid.B6, "B6"));
+        private void loadIsometricGrid()
+        {
+            for (int i = 0; i < grid.A.Length; i++) // A
+            {
+                if(aRow[i] != "")
+                {
+                    tiles.Add(new IsometricTile(grid.A[i], "A" + i));
+                }
+            }
 
-            tiles.Add(new IsometricTile(grid.C1, "C1"));
-            //tiles.Add(new IsometricTile(grid.C2, "C2"));
-            tiles.Add(new IsometricTile(grid.C3, "C3"));
-            tiles.Add(new IsometricTile(grid.C4, "C4"));
-            //tiles.Add(new IsometricTile(grid.C5, "C5"));
-            tiles.Add(new IsometricTile(grid.C6, "C6"));
+            for (int i = 0; i < grid.B.Length; i++) // B
+            {
+                if (bRow[i] != "")
+                {
+                    tiles.Add(new IsometricTile(grid.B[i], "B" + i));
+                }
+            }
 
-            tiles.Add(new IsometricTile(grid.D1, "D1"));
-            //tiles.Add(new IsometricTile(grid.D2, "D2"));
-            tiles.Add(new IsometricTile(grid.D3, "D3"));
-            tiles.Add(new IsometricTile(grid.D4, "D4"));
-            //tiles.Add(new IsometricTile(grid.D5, "D5"));
-            tiles.Add(new IsometricTile(grid.D6, "D6"));
+            for (int i = 0; i < grid.C.Length; i++) // C
+            {
+                if (cRow[i] != "")
+                {
+                    tiles.Add(new IsometricTile(grid.C[i], "C" + i));
+                }
+            }
 
-            tiles.Add(new IsometricTile(grid.E1, "E1"));
-            //tiles.Add(new IsometricTile(grid.E2, "E2"));
-            //tiles.Add(new IsometricTile(grid.E3, "E3"));
-            //tiles.Add(new IsometricTile(grid.E4, "E4"));
-            //tiles.Add(new IsometricTile(grid.E5, "E5"));
-            tiles.Add(new IsometricTile(grid.E6, "E6"));
+            for (int i = 0; i < grid.D.Length; i++) // D
+            {
+                if (dRow[i] != "")
+                {
+                    tiles.Add(new IsometricTile(grid.D[i], "D" + i));
+                }
+            }
 
-            tiles.Add(new IsometricTile(grid.F1, "F1"));
-            tiles.Add(new IsometricTile(grid.F2, "F2"));
-            tiles.Add(new IsometricTile(grid.F3, "F3"));
-            tiles.Add(new IsometricTile(grid.F4, "F4"));
-            tiles.Add(new IsometricTile(grid.F5, "F5"));
-            tiles.Add(new IsometricTile(grid.F6, "F6"));
+            for (int i = 0; i < grid.E.Length; i++) // E
+            {
+                if (eRow[i] != "")
+                {
+                    tiles.Add(new IsometricTile(grid.E[i], "E" + i));
+                }
+            }
+
+            for (int i = 0; i < grid.F.Length; i++) // F
+            {
+                if (fRow[i] != "")
+                {
+                    tiles.Add(new IsometricTile(grid.F[i], "F" + i));
+                }
+            }
         }
 
         private void Canvas_Paint(object sender, PaintEventArgs e)
