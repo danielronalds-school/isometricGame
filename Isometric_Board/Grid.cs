@@ -10,7 +10,9 @@ namespace Isometric_Board
     class Grid
     {
         int x_offset = 350;
-        int y_offset = 150;
+        int y_offset = 190;
+
+        // 2:1 Ratio
 
         public int GridSize = 7;
 

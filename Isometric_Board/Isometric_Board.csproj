@@ -55,6 +55,7 @@
     <Compile Include="Grid.cs" />
     <Compile Include="GridMap.cs" />
     <Compile Include="IsometricTile.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderer.cs" />
@@ -89,6 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\isometric_cube_template.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_cube.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

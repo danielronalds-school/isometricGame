@@ -9,11 +9,11 @@ namespace Isometric_Board
 {
     class Renderer
     {
-        Grid grid = new Grid();
+        public Grid grid = new Grid();
 
         List<IsometricTile> tiles = new List<IsometricTile>();
 
-        GridMap gridmap = new GridMap();
+        public GridMap gridmap = new GridMap();
 
         public Renderer()
         {
@@ -33,11 +33,18 @@ namespace Isometric_Board
             Console.WriteLine("Total tiles: " + tiles.Count());
         }
 
-        public void renderIsometricTiles(Graphics g)
+        public void renderIsometricTiles(Graphics g, Player player)
         {
+            bool drawnPlayer = false;
+
             foreach (IsometricTile tile in tiles)
             {
                 tile.drawTile(g);
+                if(tile.tileID == "D23" && !drawnPlayer) // Draws player so that it appears under items that are on a taller layer
+                {
+                    player.drawPlayer(g);
+                    drawnPlayer = true;
+                }
             }
         }
 
