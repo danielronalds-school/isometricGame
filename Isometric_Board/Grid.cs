@@ -10,11 +10,11 @@ namespace Isometric_Board
     class Grid
     {
         int x_offset = 350;
-        int y_offset = 140;
+        int y_offset = 118;
 
-        int GridSize = 6;
+        int GridSize = 7;
 
-        public Point[] A, B, C, D, E, F;
+        public Point[] A, B, C, D, E, F, G;
 
         public Grid()
         {
@@ -24,6 +24,7 @@ namespace Isometric_Board
             loadArrayD();
             loadArrayE();
             loadArrayF();
+            loadArrayG();
         }
 
         private void loadArrayA()
@@ -136,6 +137,25 @@ namespace Isometric_Board
                     Point previousTile = F[i - 1];
 
                     F[i] = new Point(previousTile.X - 22, previousTile.Y + 11);
+                }
+            }
+        }
+
+        private void loadArrayG()
+        {
+            G = new Point[GridSize];
+
+            for (int i = 0; i < GridSize; i++)
+            {
+                if (i == 0)
+                {
+                    G[i] = new Point(x_offset + (22 * 7), y_offset + (11 * 7));
+                }
+                else
+                {
+                    Point previousTile = G[i - 1];
+
+                    G[i] = new Point(previousTile.X - 22, previousTile.Y + 11);
                 }
             }
         }
