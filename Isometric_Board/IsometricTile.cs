@@ -13,11 +13,15 @@ namespace Isometric_Board
 
         Image tileImage;
 
+        public IsometricCollider collider;
+
         public Rectangle tileRec;
+
+        public bool playerLayer;
 
         public string tileID;
 
-        public IsometricTile(Point Position, string ID)
+        public IsometricTile(Point Position, string ID, bool PlayerLayer)
         {
             x = Position.X;
             y = Position.Y;
@@ -26,9 +30,16 @@ namespace Isometric_Board
 
             tileID = ID;
 
-            tileImage = Properties.Resources.white_isometric_cube;
+            tileImage = Properties.Resources.high_res_isometric_cube_white;//Properties.Resources.white_isometric_cube;
 
             tileRec = new Rectangle(x, y, width, height);
+
+            if(PlayerLayer)
+            {
+                collider = new IsometricCollider(tileRec.Location);
+            }
+
+            playerLayer = PlayerLayer;
         }
 
         public void drawTile(Graphics g)

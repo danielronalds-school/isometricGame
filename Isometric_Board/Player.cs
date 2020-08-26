@@ -11,11 +11,13 @@ namespace Isometric_Board
     {
         int width, height, x, y;
 
-        Image playerImage = Properties.Resources.player_cube;
+        public IsometricCollider collider;
 
-        Rectangle playerRec;
+        Image playerImage = Properties.Resources.high_res_player_cube;
 
-        int playerSpeed = 2;
+        public Rectangle playerRec;
+
+        int playerSpeed = 1;
 
         public Player(Point Location)
         {
@@ -28,40 +30,118 @@ namespace Isometric_Board
             Size playerSize = new Size(width, height);
 
             playerRec = new Rectangle(Location, playerSize);
+
+            collider = new IsometricCollider(playerRec.Location);
         }
 
         public void drawPlayer(Graphics g)
         {
-            playerRec.Location = new Point(x, y);
-
             g.DrawImage(playerImage, playerRec);
         }
 
-        public void movePlayer(bool right, bool left, bool up, bool down)
+        public void movePlayer(bool right, bool left, bool up, bool down, List<IsometricTile> tiles)
         {
             if(right)
             {
-                x += (2 * playerSpeed);
-                y += (1 * playerSpeed);
+                playerRec.X += (2 * playerSpeed);
+                playerRec.Y -= (1 * playerSpeed);
+                foreach(IsometricTile tile in tiles)
+                {
+                    if(tile.playerLayer)
+                    {
+                        foreach (Rectangle tileCollider in tile.collider.colliders)
+                        {
+                            foreach (Rectangle playerCollider in collider.colliders)
+                            {
+                                if(playerCollider.IntersectsWith(tileCollider))
+                                {
+                                    playerRec.X -= (2 * playerSpeed);
+                                    playerRec.Y += (1 * playerSpeed);
+                                    collider.updatePosition(playerRec.Location);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            if(left)
+             else if(left)
             {
-                x -= (2 * playerSpeed);
-                y -= (1 * playerSpeed);
+                playerRec.X -= (2 * playerSpeed);
+                playerRec.Y += (1 * playerSpeed);
+                foreach (IsometricTile tile in tiles)
+                {
+                    if (tile.playerLayer)
+                    {
+                        foreach (Rectangle tileCollider in tile.collider.colliders)
+                        {
+                            foreach (Rectangle playerCollider in collider.colliders)
+                            {
+                                if (playerCollider.IntersectsWith(tileCollider))
+                                {
+                                    playerRec.X += (2 * playerSpeed);
+                                    playerRec.Y -= (1 * playerSpeed);
+                                    collider.updatePosition(playerRec.Location);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            if(up)
+            else if(up)
             {
-                x += (2 * playerSpeed);
-                y -= (1 * playerSpeed);
+                playerRec.X -= (2 * playerSpeed);
+                playerRec.Y -= (1 * playerSpeed);
+                foreach (IsometricTile tile in tiles)
+                {
+                    if (tile.playerLayer)
+                    {
+                        foreach (Rectangle tileCollider in tile.collider.colliders)
+                        {
+                            foreach (Rectangle playerCollider in collider.colliders)
+                            {
+                                if (playerCollider.IntersectsWith(tileCollider))
+                                {
+                                    playerRec.X += (2 * playerSpeed);
+                                    playerRec.Y += (1 * playerSpeed);
+                                    collider.updatePosition(playerRec.Location);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            if(down)
+            else if(down)
             {
-                x -= (2 * playerSpeed);
-                y += (1 * playerSpeed);
+                playerRec.X += (2 * playerSpeed);
+                playerRec.Y += (1 * playerSpeed);
+                foreach (IsometricTile tile in tiles)
+                {
+                    if (tile.playerLayer)
+                    {
+                        foreach (Rectangle tileCollider in tile.collider.colliders)
+                        {
+                            foreach (Rectangle playerCollider in collider.colliders)
+                            {
+                                if (playerCollider.IntersectsWith(tileCollider))
+                                {
+                                    playerRec.X -= (2 * playerSpeed);
+                                    playerRec.Y -= (1 * playerSpeed);
+                                    collider.updatePosition(playerRec.Location);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
             }
+
+            collider.updatePosition(playerRec.Location);
         }
 
     }
