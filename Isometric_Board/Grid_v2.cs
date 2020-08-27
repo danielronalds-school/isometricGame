@@ -12,7 +12,7 @@ namespace Isometric_Board
         int x_offset = 376;
         int y_offset = 180;
 
-        public int gridSize = 5;
+        public int gridSize = 9;
         public int gridSizeZ = 5;
 
         public List<Point[,]> Layers = new List<Point[,]>();

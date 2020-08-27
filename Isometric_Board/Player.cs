@@ -37,6 +37,7 @@ namespace Isometric_Board
         public void drawPlayer(Graphics g)
         {
             g.DrawImage(playerImage, playerRec);
+            //g.DrawRectangle(Pens.Red, playerRec);
         }
 
         public void movePlayer(bool right, bool left, bool up, bool down, List<IsometricTile> tiles)

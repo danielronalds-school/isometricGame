@@ -15,6 +15,8 @@ namespace Isometric_Board
 
         public List<IsometricTile> tiles = new List<IsometricTile>();
 
+        int playerLayer = 1;
+
         public Renderer_v2()
         {
             loadIsometricTiles();
@@ -25,6 +27,11 @@ namespace Isometric_Board
             foreach (IsometricTile tile in tiles)
             {
                 tile.drawTile(g);
+
+                if (tile.tileID.Contains("P"))
+                {
+                    player.drawPlayer(g);
+                }
             }
         }
 
@@ -36,14 +43,40 @@ namespace Isometric_Board
             foreach (Point[,] layer in grid.Layers)
             {
                 layerNumber++;
+                string[,] map = gridMap.Layers[layerNumber];
+
+                int playerI = 0;
+                int playerX = 0;
+
+                if (layerNumber == playerLayer) // Finds when to paint the player
+                {
+                    for (int i = 0; i < grid.gridSize; i++)
+                    {
+                        for (int x = 0; x < grid.gridSize; x++)
+                        {
+                            if(map[x, i] != "0")
+                            {
+                                playerI = i;
+                                playerX = x;
+                            }
+                        }
+                    }
+                }
+
                 for (int i = 0; i < grid.gridSize; i++)
                 {
                     for (int x = 0; x < grid.gridSize; x++)
                     {
-                        string[,] map = gridMap.Layers[layerNumber];
                         if(map[x, i] != "0")
                         {
-                            ID = layerNumber + "-" + "-" + i + "-" + x;
+                            if(i == playerI && x == playerX && layerNumber == playerLayer)
+                            {
+                                ID = "P" + layerNumber + "-" + "-" + i + "-" + x;
+                            }
+                            else
+                            {
+                                ID = layerNumber + "-" + "-" + i + "-" + x;
+                            }
                             tiles.Add(new IsometricTile(layer[x, i], ID, false));
                         }
                     }
