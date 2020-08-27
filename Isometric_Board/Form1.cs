@@ -15,11 +15,9 @@ namespace Isometric_Board
     {
         Graphics g;
 
-        Renderer renderer = new Renderer();
+        Renderer_v2 renderer = new Renderer_v2();
 
         Player player;
-
-        IsometricCollider collider;
 
         bool playerRight, playerLeft, playerUp, playerDown;
 
@@ -27,7 +25,7 @@ namespace Isometric_Board
         {
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, Canvas, new object[] { true });
-            player = new Player(renderer.grid.A2[6]);
+            player = new Player(renderer.grid.loadLayer(1)[1,1]);
             //collider = new IsometricCollider(renderer.grid.E2[6]);
         }
 
@@ -37,13 +35,11 @@ namespace Isometric_Board
             g = e.Graphics;
 
             renderer.Render(g, player);
-
-            //collider.drawVisual(g);
         }
 
         private void refreshScreen_Tick(object sender, EventArgs e)
         {
-            player.movePlayer(playerRight, playerLeft, playerUp, playerDown, renderer.tiles);
+            //player.movePlayer(playerRight, playerLeft, playerUp, playerDown, renderer.tiles);
             Canvas.Invalidate();
         }
 

@@ -11,6 +11,8 @@ namespace Isometric_Board
     {
         public Grid grid = new Grid();
 
+        public Grid_v2 grid2 = new Grid_v2();
+
         public List<IsometricTile> tiles = new List<IsometricTile>();
 
         public GridMap gridmap = new GridMap();
@@ -24,6 +26,17 @@ namespace Isometric_Board
             loadIsometricGridFive();
             loadIsometricGridSix();
             loadIsometricGridSeven();
+
+            foreach(Point[,] layer in grid2.Layers)
+            {
+                for (int i = 0; i < grid2.gridSize; i++)
+                {
+                    for (int x = 0; x < grid2.gridSize; x++)
+                    {
+                        tiles.Add(new IsometricTile(layer[x, i], "test", false));
+                    }
+                }
+            }
 
             foreach (IsometricTile tile in tiles)
             {
@@ -42,11 +55,11 @@ namespace Isometric_Board
                 tile.drawTile(g);
 
 
-                if (tile.tileID == "D23" && !drawnPlayer) // Draws player so that it appears under items that are on a taller layer
-                {
-                    player.drawPlayer(g);
-                    drawnPlayer = true;
-                }
+                //if (tile.tileID == "D23" && !drawnPlayer) // Draws player so that it appears under items that are on a taller layer
+                //{
+                //    player.drawPlayer(g);
+                //    drawnPlayer = true;
+                //}
             }
         }
 
