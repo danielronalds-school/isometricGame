@@ -17,7 +17,7 @@ namespace Isometric_Board
 
         public Rectangle playerRec;
 
-        int playerSpeed = 1;
+        int playerSpeed = 2;
 
         public Player(Point Location)
         {
@@ -37,7 +37,7 @@ namespace Isometric_Board
         public void drawPlayer(Graphics g)
         {
             g.DrawImage(playerImage, playerRec);
-            //g.DrawRectangle(Pens.Red, playerRec);
+            collider.drawVisual(g);
         }
 
         public void movePlayer(bool right, bool left, bool up, bool down, List<IsometricTile> tiles)
@@ -46,104 +46,27 @@ namespace Isometric_Board
             {
                 playerRec.X += (2 * playerSpeed);
                 playerRec.Y -= (1 * playerSpeed);
-                foreach(IsometricTile tile in tiles)
-                {
-                    if(tile.playerLayer)
-                    {
-                        foreach (Rectangle tileCollider in tile.collider.colliders)
-                        {
-                            foreach (Rectangle playerCollider in collider.colliders)
-                            {
-                                if(playerCollider.IntersectsWith(tileCollider))
-                                {
-                                    playerRec.X -= (2 * playerSpeed);
-                                    playerRec.Y += (1 * playerSpeed);
-                                    collider.updatePosition(playerRec.Location);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
             }
 
-             else if(left)
+            if(left)
             {
                 playerRec.X -= (2 * playerSpeed);
                 playerRec.Y += (1 * playerSpeed);
-                foreach (IsometricTile tile in tiles)
-                {
-                    if (tile.playerLayer)
-                    {
-                        foreach (Rectangle tileCollider in tile.collider.colliders)
-                        {
-                            foreach (Rectangle playerCollider in collider.colliders)
-                            {
-                                if (playerCollider.IntersectsWith(tileCollider))
-                                {
-                                    playerRec.X += (2 * playerSpeed);
-                                    playerRec.Y -= (1 * playerSpeed);
-                                    collider.updatePosition(playerRec.Location);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
             }
 
-            else if(up)
+            if(up)
             {
                 playerRec.X -= (2 * playerSpeed);
                 playerRec.Y -= (1 * playerSpeed);
-                foreach (IsometricTile tile in tiles)
-                {
-                    if (tile.playerLayer)
-                    {
-                        foreach (Rectangle tileCollider in tile.collider.colliders)
-                        {
-                            foreach (Rectangle playerCollider in collider.colliders)
-                            {
-                                if (playerCollider.IntersectsWith(tileCollider))
-                                {
-                                    playerRec.X += (2 * playerSpeed);
-                                    playerRec.Y += (1 * playerSpeed);
-                                    collider.updatePosition(playerRec.Location);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
             }
 
-            else if(down)
+            if(down)
             {
                 playerRec.X += (2 * playerSpeed);
                 playerRec.Y += (1 * playerSpeed);
-                foreach (IsometricTile tile in tiles)
-                {
-                    if (tile.playerLayer)
-                    {
-                        foreach (Rectangle tileCollider in tile.collider.colliders)
-                        {
-                            foreach (Rectangle playerCollider in collider.colliders)
-                            {
-                                if (playerCollider.IntersectsWith(tileCollider))
-                                {
-                                    playerRec.X -= (2 * playerSpeed);
-                                    playerRec.Y -= (1 * playerSpeed);
-                                    collider.updatePosition(playerRec.Location);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
             }
 
             collider.updatePosition(playerRec.Location);
         }
-
     }
 }

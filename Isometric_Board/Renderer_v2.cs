@@ -27,12 +27,8 @@ namespace Isometric_Board
             foreach (IsometricTile tile in tiles)
             {
                 tile.drawTile(g);
-
-                if (tile.tileID.Contains("P"))
-                {
-                    player.drawPlayer(g);
-                }
             }
+            player.drawPlayer(g);
         }
 
         private void loadIsometricTiles()
@@ -54,7 +50,7 @@ namespace Isometric_Board
                     {
                         for (int x = 0; x < grid.gridSize; x++)
                         {
-                            if(map[x, i] != "0")
+                            if (map[x, i] != "0")
                             {
                                 playerI = i;
                                 playerX = x;
@@ -67,9 +63,9 @@ namespace Isometric_Board
                 {
                     for (int x = 0; x < grid.gridSize; x++)
                     {
-                        if(map[x, i] != "0")
+                        if (map[x, i] != "0")
                         {
-                            if(i == playerI && x == playerX && layerNumber == playerLayer)
+                            if (i == playerI && x == playerX && layerNumber == playerLayer)
                             {
                                 ID = "P" + layerNumber + "-" + "-" + i + "-" + x;
                             }
@@ -77,18 +73,18 @@ namespace Isometric_Board
                             {
                                 ID = layerNumber + "-" + "-" + i + "-" + x;
                             }
-                            tiles.Add(new IsometricTile(layer[x, i], ID, false));
+                            tiles.Add(new IsometricTile(layer[x, i], ID));
                         }
                     }
+
+                    foreach (IsometricTile tile in tiles)
+                    {
+                        Console.WriteLine(tile.tileID);
+                    }
+
+                    Console.WriteLine("Total tiles: " + tiles.Count());
                 }
             }
-
-            foreach (IsometricTile tile in tiles)
-            {
-                Console.WriteLine(tile.tileID);
-            }
-
-            Console.WriteLine("Total tiles: " + tiles.Count());
         }
     }
 }

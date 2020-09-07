@@ -26,7 +26,6 @@ namespace Isometric_Board
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, Canvas, new object[] { true });
             player = new Player(renderer.grid.loadLayer(1)[8,8]);
-            //collider = new IsometricCollider(renderer.grid.E2[6]);
         }
 
 

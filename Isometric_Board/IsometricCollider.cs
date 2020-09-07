@@ -13,6 +13,8 @@ namespace Isometric_Board
 
         public Rectangle[] colliders = new Rectangle[11];
 
+        bool visualDrawing = false;
+
         public IsometricCollider(Point location)
         {
             displayRec.Location = location;
@@ -21,11 +23,14 @@ namespace Isometric_Board
 
         public void drawVisual(Graphics g)
         {
-            g.DrawImage(Properties.Resources.high_res_bottom_collider, displayRec);
-            for (int i = 0; i < 11; i++)
+            if(visualDrawing)
             {
-                g.DrawRectangle(Pens.White, createCollider(i + 1));
+                g.DrawImage(Properties.Resources.high_res_bottom_collider, displayRec);
             }
+            //for (int i = 0; i < 11; i++)
+            //{
+            //    g.DrawRectangle(Pens.White, createCollider(i + 1));
+            //}
         }
 
         public void updatePosition(Point new_location)
@@ -48,8 +53,8 @@ namespace Isometric_Board
 
             int x, y, width, height;
 
-            x = displayRec.X + (23 - (number * 2));
-            y = displayRec.Y + (23 + number);
+            x = displayRec.X + (0 - (number * 2));
+            y = displayRec.Y + (0 + number);
 
             width = 1 + (number * 4);
             height = 24 - (number * 2);
