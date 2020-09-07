@@ -15,6 +15,8 @@ namespace Isometric_Board
 
         public List<IsometricTile> tiles = new List<IsometricTile>();
 
+        public List<RenderComponent> renderOrder = new List<RenderComponent>();
+
         int playerLayer = 1;
 
         public Renderer_v2()
@@ -24,11 +26,26 @@ namespace Isometric_Board
 
         public void Render(Graphics g, Player player)
         {
-            foreach (IsometricTile tile in tiles)
+            sortRenderOrder(player);
+
+            foreach(RenderComponent component in renderOrder)
             {
-                tile.renderComponent.Render(g);
+                component.Render(g);
             }
+
             player.renderComponent.Render(g);
+        }
+
+        private void sortRenderOrder(Player player)
+        {
+            renderOrder.Clear();
+
+            foreach(IsometricTile tile in tiles)
+            {
+                renderOrder.Add(tile.renderComponent);
+            }
+
+            //renderOrder.Add(player.renderComponent);
         }
 
         private void loadIsometricTiles()

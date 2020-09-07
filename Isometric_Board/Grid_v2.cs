@@ -10,10 +10,10 @@ namespace Isometric_Board
     class Grid_v2
     {
         int x_offset = 376;
-        int y_offset = 180;
+        int y_offset = 10;
 
-        public int gridSize = 9;
-        public int gridSizeZ = 5;
+        public int gridSize = 17;
+        public int gridSizeZ = 4;
 
         public List<Point[,]> Layers = new List<Point[,]>();
 

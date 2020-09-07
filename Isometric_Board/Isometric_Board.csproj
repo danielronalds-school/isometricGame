@@ -108,5 +108,8 @@
   <ItemGroup>
     <None Include="Resources\high_res_bottom_collider.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\high_res_isometric_cube_white_bordered.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

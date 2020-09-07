@@ -34,30 +34,50 @@ namespace Isometric_Board
             renderComponent = new RenderComponent(playerImage, playerRec);
         }
 
-        public void movePlayer(bool right, bool left, bool up, bool down, List<IsometricTile> tiles)
+        public void movePlayer(bool right, bool left, bool up, bool down, List<RenderComponent> components)
         {
             if(right)
             {
-                playerRec.X += (2 * playerSpeed);
-                playerRec.Y -= (1 * playerSpeed);
+                //playerRec.X += (2 * playerSpeed);
+                //playerRec.Y -= (1 * playerSpeed);
+                foreach(RenderComponent component in components)
+                {
+                    component.RenderRect.X -= (2 * playerSpeed);
+                    component.RenderRect.Y += (1 * playerSpeed);
+                }
             }
 
             if(left)
             {
-                playerRec.X -= (2 * playerSpeed);
-                playerRec.Y += (1 * playerSpeed);
+                //playerRec.X -= (2 * playerSpeed);
+                //playerRec.Y += (1 * playerSpeed);
+                foreach (RenderComponent component in components)
+                {
+                    component.RenderRect.X += (2 * playerSpeed);
+                    component.RenderRect.Y -= (1 * playerSpeed);
+                }
             }
 
             if(up)
             {
-                playerRec.X -= (2 * playerSpeed);
-                playerRec.Y -= (1 * playerSpeed);
+                //playerRec.X -= (2 * playerSpeed);
+                //playerRec.Y -= (1 * playerSpeed);
+                foreach (RenderComponent component in components)
+                {
+                    component.RenderRect.X += (2 * playerSpeed);
+                    component.RenderRect.Y += (1 * playerSpeed);
+                }
             }
 
             if(down)
             {
-                playerRec.X += (2 * playerSpeed);
-                playerRec.Y += (1 * playerSpeed);
+                //playerRec.X += (2 * playerSpeed);
+                //playerRec.Y += (1 * playerSpeed);
+                foreach (RenderComponent component in components)
+                {
+                    component.RenderRect.X -= (2 * playerSpeed);
+                    component.RenderRect.Y -= (1 * playerSpeed);
+                }
             }
 
             renderComponent.RenderRect = playerRec;

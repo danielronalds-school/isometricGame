@@ -38,7 +38,7 @@ namespace Isometric_Board
 
         private void refreshScreen_Tick(object sender, EventArgs e)
         {
-            player.movePlayer(playerRight, playerLeft, playerUp, playerDown, renderer.tiles);
+            player.movePlayer(playerRight, playerLeft, playerUp, playerDown, renderer.renderOrder);
             Canvas.Invalidate();
         }
 
