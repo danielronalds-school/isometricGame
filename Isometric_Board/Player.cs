@@ -9,9 +9,9 @@ namespace Isometric_Board
 {
     class Player
     {
-        int width, height, x, y;
+        public RenderComponent renderComponent;
 
-        public IsometricCollider collider;
+        int width, height, x, y;
 
         Image playerImage = Properties.Resources.high_res_player_cube;
 
@@ -31,13 +31,7 @@ namespace Isometric_Board
 
             playerRec = new Rectangle(Location, playerSize);
 
-            collider = new IsometricCollider(playerRec.Location);
-        }
-
-        public void drawPlayer(Graphics g)
-        {
-            g.DrawImage(playerImage, playerRec);
-            collider.drawVisual(g);
+            renderComponent = new RenderComponent(playerImage, playerRec);
         }
 
         public void movePlayer(bool right, bool left, bool up, bool down, List<IsometricTile> tiles)
@@ -66,7 +60,7 @@ namespace Isometric_Board
                 playerRec.Y += (1 * playerSpeed);
             }
 
-            collider.updatePosition(playerRec.Location);
+            renderComponent.RenderRect = playerRec;
         }
     }
 }

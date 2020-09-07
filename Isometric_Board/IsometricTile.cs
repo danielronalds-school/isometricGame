@@ -9,6 +9,8 @@ namespace Isometric_Board
 {
     class IsometricTile
     {
+        public RenderComponent renderComponent;
+
         int width, height, x, y;
 
         Image tileImage;
@@ -29,11 +31,8 @@ namespace Isometric_Board
             tileImage = Properties.Resources.high_res_isometric_cube_white;
 
             tileRec = new Rectangle(x, y, width, height);
-        }
 
-        public void drawTile(Graphics g)
-        {
-            g.DrawImage(tileImage, tileRec);
+            renderComponent = new RenderComponent(tileImage, tileRec);
         }
     }
 }

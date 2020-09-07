@@ -26,9 +26,9 @@ namespace Isometric_Board
         {
             foreach (IsometricTile tile in tiles)
             {
-                tile.drawTile(g);
+                tile.renderComponent.Render(g);
             }
-            player.drawPlayer(g);
+            player.renderComponent.Render(g);
         }
 
         private void loadIsometricTiles()
