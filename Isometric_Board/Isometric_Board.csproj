@@ -111,5 +111,17 @@
   <ItemGroup>
     <None Include="Resources\high_res_isometric_cube_white_bordered.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\64x64_isometric_cube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_shadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\64x64_isometric_tile.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,19 +9,26 @@ namespace Isometric_Board
 {
     class Player
     {
-        public RenderComponent renderComponent;
+        public List<RenderComponent> renderComponent = new List<RenderComponent>();
 
         int width, height, x, y;
 
-        Image playerImage = Properties.Resources.high_res_player_cube;
+        Image playerImage = Properties.Resources.player_main;
+        Image playerShadowImage = Properties.Resources.player_shadow;
 
         public Rectangle playerRec;
+        Rectangle playerBodyRec;
 
         int playerSpeed = 2;
 
+        int currentAnimation = 0;
+        int maxAnimation = 8;
+        int animationDelay = 0;
+        int maxAnimationDelay = 6;
+
         public Player(Point Location)
         {
-            width = 48;
+            width = 64;
             height = width;
 
             x = Location.X;
@@ -30,13 +37,42 @@ namespace Isometric_Board
             Size playerSize = new Size(width, height);
 
             playerRec = new Rectangle(Location, playerSize);
+            playerBodyRec = new Rectangle(Location, playerSize);
 
-            renderComponent = new RenderComponent(playerImage, playerRec);
+            renderComponent.Add(new RenderComponent(playerShadowImage, playerRec));
+            renderComponent.Add(new RenderComponent(playerImage, playerBodyRec));
+        }
+
+        public void updateAnimation()
+        {
+            if(animationDelay >= maxAnimationDelay)
+            {
+                if (currentAnimation <= (maxAnimation / 2))
+                {
+                    renderComponent[1].RenderRect.Y += 1;
+                }
+                else if (currentAnimation < maxAnimation)
+                {
+                    renderComponent[1].RenderRect.Y -= 1;
+                }
+                else
+                {
+                    renderComponent[1].RenderRect.Location = renderComponent[0].RenderRect.Location;
+                    currentAnimation = 0;
+                }
+
+                currentAnimation++;
+
+                animationDelay = 0;
+            } else
+            {
+                animationDelay++;
+            }
         }
 
         public void movePlayer(bool right, bool left, bool up, bool down, List<RenderComponent> components)
         {
-            if(right)
+            if (right)
             {
                 //playerRec.X += (2 * playerSpeed);
                 //playerRec.Y -= (1 * playerSpeed);
@@ -80,7 +116,15 @@ namespace Isometric_Board
                 }
             }
 
-            renderComponent.RenderRect = playerRec;
+            if(right || left || up || down)
+            {
+                maxAnimationDelay = 3;
+            } else
+            {
+                maxAnimationDelay = 6;
+            }
+
+            updateAnimation();
         }
     }
 }

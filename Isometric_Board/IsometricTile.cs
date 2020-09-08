@@ -19,16 +19,21 @@ namespace Isometric_Board
 
         public string tileID;
 
-        public IsometricTile(Point Position, string ID)
+        public IsometricTile(Point Position, string ID, bool slab)
         {
             x = Position.X;
             y = Position.Y;
-            width = 48;
+            width = 64;
             height = width;
 
             tileID = ID;
 
-            tileImage = Properties.Resources.high_res_isometric_cube_white_bordered;
+            tileImage = Properties.Resources.large_isometric_cube;
+
+            if(slab)
+            {
+                tileImage = Properties.Resources._64x64_isometric_tile;
+            }
 
             tileRec = new Rectangle(x, y, width, height);
 

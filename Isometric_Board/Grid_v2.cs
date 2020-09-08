@@ -15,6 +15,10 @@ namespace Isometric_Board
         public int gridSize = 17;
         public int gridSizeZ = 4;
 
+        int x_tile_offset = 32; // 22 for 48x48 tiles 32 for 64x64 tiles
+        int y_tile_offset = 16; // 11 for 48x48 tiles 16 for 64x64 tiles
+        int z_tile_offset = 32; // 23 for 48x48 tiles 32 for 64x64 tiles
+
         public List<Point[,]> Layers = new List<Point[,]>();
 
         //public Point[,] Layer;
@@ -33,11 +37,11 @@ namespace Isometric_Board
 
             int layer_y;
 
-            layer_y = y_offset - (23 * layerNumber);
+            layer_y = y_offset - (z_tile_offset * layerNumber);
 
             for (int i = 0; i < gridSize; i++)
             {
-                Layer[i, 0] = new Point(x_offset + (22 * (i+1)), layer_y + (11 * (i + 1)));
+                Layer[i, 0] = new Point(x_offset + (x_tile_offset * (i+1)), layer_y + (y_tile_offset * (i + 1)));
             }
 
             for (int i = 0; i < gridSize; i++)
@@ -55,7 +59,7 @@ namespace Isometric_Board
                         previousTile = Layer[x, i - 1];
                     }
 
-                    Layer[x,i] = new Point(previousTile.X - 22, previousTile.Y + 11);
+                    Layer[x,i] = new Point(previousTile.X - x_tile_offset, previousTile.Y + y_tile_offset);
                 }
             }
 

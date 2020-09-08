@@ -63,6 +63,16 @@ namespace Isometric_Board.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _64x64_isometric_tile {
+            get {
+                object obj = ResourceManager.GetObject("_64x64_isometric_tile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap blue_isometric_cube {
             get {
                 object obj = ResourceManager.GetObject("blue_isometric_cube", resourceCulture);
@@ -123,9 +133,39 @@ namespace Isometric_Board.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap large_isometric_cube {
+            get {
+                object obj = ResourceManager.GetObject("large_isometric_cube", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap player_cube {
             get {
                 object obj = ResourceManager.GetObject("player_cube", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_main {
+            get {
+                object obj = ResourceManager.GetObject("player_main", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_shadow {
+            get {
+                object obj = ResourceManager.GetObject("player_shadow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
