@@ -5,10 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Isometric_Board
+namespace isometricRenderEngine
 {
     class IsometricTile
     {
+        /*
+            Put some description here
+             */
+
         public RenderComponent renderComponent;
 
         int width, height, x, y;

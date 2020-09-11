@@ -6,12 +6,27 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1A7BD15C-862F-4AD5-BA40-62FEFD5A7F52}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Isometric_Board</RootNamespace>
-    <AssemblyName>Isometric_Board</AssemblyName>
+    <RootNamespace>isometricRenderEngine</RootNamespace>
+    <AssemblyName>isometricRenderEngine</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,9 +69,7 @@
     </Compile>
     <Compile Include="GridMap_v2.cs" />
     <Compile Include="Grid_v2.cs" />
-    <Compile Include="IsometricCollider.cs" />
     <Compile Include="IsometricTile.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenderComponent.cs" />
@@ -122,6 +135,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\64x64_isometric_tile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_floor_tile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_eyes_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_eyes_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

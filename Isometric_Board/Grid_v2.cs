@@ -5,26 +5,52 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Isometric_Board
+namespace isometricRenderEngine
 {
     class Grid_v2
     {
         int x_offset = 376;
-        int y_offset = 10;
+        int y_offset = 220;
 
-        public int gridSize = 17;
-        public int gridSizeZ = 4;
+        public int gridSize = 7; // the width and length of the isometric grid (check the gridmap array)
+        public int gridSizeZ = 7; // the height of the isometric grid (number of layer string arrays)
 
-        int x_tile_offset = 32; // 22 for 48x48 tiles 32 for 64x64 tiles
-        int y_tile_offset = 16; // 11 for 48x48 tiles 16 for 64x64 tiles
-        int z_tile_offset = 32; // 23 for 48x48 tiles 32 for 64x64 tiles
+        public int assestsSize;
+
+        int x_tile_offset;
+        int y_tile_offset;
+        int z_tile_offset;
 
         public List<Point[,]> Layers = new List<Point[,]>();
 
         //public Point[,] Layer;
 
-        public Grid_v2()
+        public Grid_v2(int desiredAssestsSize)
         {
+            assestsSize = desiredAssestsSize;
+
+            switch (assestsSize) // sets appropriate grid offsets depending on the dimensions of the isometric sprites used
+            {
+                case 16:
+                    x_tile_offset = 16;
+                    y_tile_offset = 8;
+                    z_tile_offset = 16;
+                    break;
+
+                case 48:
+                    x_tile_offset = 22;
+                    y_tile_offset = 11;
+                    z_tile_offset = 23;
+                    break;
+
+                default:
+                case 64:
+                    x_tile_offset = 32;
+                    y_tile_offset = 16;
+                    z_tile_offset = 32;
+                    break;
+            }
+
             for (int i = 0; i < gridSizeZ; i++)
             {
                 Layers.Add(loadLayer(i));

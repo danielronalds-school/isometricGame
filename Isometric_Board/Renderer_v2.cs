@@ -5,11 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Isometric_Board
+namespace isometricRenderEngine
 {
     class Renderer_v2
     {
-        public Grid_v2 grid = new Grid_v2();
+        /*
+            Put some description here
+             */
+
+        public Grid_v2 grid = new Grid_v2(64); // width/height of the isometric sprites/assests
 
         public GridMap_v2 gridMap = new GridMap_v2();
 
@@ -22,22 +26,17 @@ namespace Isometric_Board
             loadIsometricTiles();
         }
 
-        public void Render(Graphics g, Player player)
+        public void Render(Graphics g) 
         {
-            sortRenderOrder(player);
+            sortRenderOrder();
 
             foreach(RenderComponent component in renderOrder)
             {
                 component.Render(g);
             }
-
-            foreach(RenderComponent component in player.renderComponent)
-            {
-                component.Render(g);
-            }
         }
 
-        private void sortRenderOrder(Player player)
+        private void sortRenderOrder() // Sorts render order to maintain the isometric illusion
         {
             renderOrder.Clear();
 
@@ -45,14 +44,33 @@ namespace Isometric_Board
             {
                 renderOrder.Add(tile.renderComponent);
             }
-
-            //renderOrder.Add(player.renderComponent);
         }
 
-        private void loadIsometricTiles()
+        private int[] getGridID(Point Location)
+        {
+            Point [,] map = grid.Layers[1];
+
+            for (int i = 0; i < grid.gridSize; i++)
+            {
+                for (int x = 0; x < grid.gridSize; x++)
+                {
+                    if (Location == map[i, x])
+                    {
+                        int[] mapLocation = { i, x };
+                        return mapLocation;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        private void loadIsometricTiles() // Inteprets the grid map to see when to place a block
         {
             string ID;
             int layerNumber = -1;
+
+            bool halfSlab = false; // use a half slab sprite, if you have one (Check isomtric tile class)
 
             foreach (Point[,] layer in grid.Layers)
             {
@@ -62,7 +80,7 @@ namespace Isometric_Board
                 int playerI = 0;
                 int playerX = 0;
 
-                for (int i = 0; i < grid.gridSize; i++)
+                for (int i = 0; i < grid.gridSize; i++) 
                 {
                     for (int x = 0; x < grid.gridSize; x++)
                     {
@@ -71,10 +89,11 @@ namespace Isometric_Board
                             bool tile;
 
                             ID = layerNumber + "-" + "-" + i + "-" + x;
-                            if(layerNumber == 0)
+                            if (layerNumber == 0 && halfSlab)
                             {
                                 tile = true;
-                            } else
+                            }
+                            else
                             {
                                 tile = false;
                             }

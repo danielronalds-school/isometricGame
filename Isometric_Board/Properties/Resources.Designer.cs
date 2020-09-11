@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Isometric_Board.Properties {
+namespace isometricRenderEngine.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Isometric_Board.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Isometric_Board.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("isometricRenderEngine.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -73,19 +73,9 @@ namespace Isometric_Board.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap blue_isometric_cube {
+        internal static System.Drawing.Bitmap green_floor_tile {
             get {
-                object obj = ResourceManager.GetObject("blue_isometric_cube", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap collider_visual {
-            get {
-                object obj = ResourceManager.GetObject("collider_visual", resourceCulture);
+                object obj = ResourceManager.GetObject("green_floor_tile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +133,19 @@ namespace Isometric_Board.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player_cube {
+        internal static System.Drawing.Bitmap player_eyes_left {
             get {
-                object obj = ResourceManager.GetObject("player_cube", resourceCulture);
+                object obj = ResourceManager.GetObject("player_eyes_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_eyes_right {
+            get {
+                object obj = ResourceManager.GetObject("player_eyes_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,16 +166,6 @@ namespace Isometric_Board.Properties {
         internal static System.Drawing.Bitmap player_shadow {
             get {
                 object obj = ResourceManager.GetObject("player_shadow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap white_isometric_cube {
-            get {
-                object obj = ResourceManager.GetObject("white_isometric_cube", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

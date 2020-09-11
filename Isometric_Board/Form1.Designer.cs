@@ -1,4 +1,4 @@
-﻿namespace Isometric_Board
+﻿namespace isometricRenderEngine
 {
     partial class Form1
     {
@@ -57,8 +57,6 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Render";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.ResumeLayout(false);
 
         }
