@@ -63,6 +63,7 @@ namespace isometricRenderEngine.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap _64x64_isometric_tile {
             get {
                 object obj = ResourceManager.GetObject("_64x64_isometric_tile", resourceCulture);
@@ -74,6 +75,9 @@ namespace isometricRenderEngine.Properties {
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap green_floor_tile {
+=======
+        internal static System.Drawing.Bitmap blue_isometric_cube {
+>>>>>>> parent of 1e710e4... Now 64x64 based compared to the previous 48x48 (nicer to work with more complex shapes) got a basic player going and the bottom tiles are now slabs
             get {
                 object obj = ResourceManager.GetObject("green_floor_tile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,6 +127,7 @@ namespace isometricRenderEngine.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap large_isometric_cube {
             get {
                 object obj = ResourceManager.GetObject("large_isometric_cube", resourceCulture);
@@ -134,6 +139,9 @@ namespace isometricRenderEngine.Properties {
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap player_eyes_left {
+=======
+        internal static System.Drawing.Bitmap player_cube {
+>>>>>>> parent of 1e710e4... Now 64x64 based compared to the previous 48x48 (nicer to work with more complex shapes) got a basic player going and the bottom tiles are now slabs
             get {
                 object obj = ResourceManager.GetObject("player_eyes_left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,6 +151,7 @@ namespace isometricRenderEngine.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap player_eyes_right {
             get {
                 object obj = ResourceManager.GetObject("player_eyes_right", resourceCulture);
@@ -164,6 +173,9 @@ namespace isometricRenderEngine.Properties {
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap player_shadow {
+=======
+        internal static System.Drawing.Bitmap white_isometric_cube {
+>>>>>>> parent of 1e710e4... Now 64x64 based compared to the previous 48x48 (nicer to work with more complex shapes) got a basic player going and the bottom tiles are now slabs
             get {
                 object obj = ResourceManager.GetObject("player_shadow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

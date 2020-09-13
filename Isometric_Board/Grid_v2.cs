@@ -15,12 +15,15 @@ namespace isometricRenderEngine
         public int gridSize = 7; // the width and length of the isometric grid (check the gridmap array)
         public int gridSizeZ = 7; // the height of the isometric grid (number of layer string arrays)
 
+<<<<<<< HEAD
         public int assestsSize;
 
         int x_tile_offset;
         int y_tile_offset;
         int z_tile_offset;
 
+=======
+>>>>>>> parent of 1e710e4... Now 64x64 based compared to the previous 48x48 (nicer to work with more complex shapes) got a basic player going and the bottom tiles are now slabs
         public List<Point[,]> Layers = new List<Point[,]>();
 
         //public Point[,] Layer;
@@ -63,11 +66,11 @@ namespace isometricRenderEngine
 
             int layer_y;
 
-            layer_y = y_offset - (z_tile_offset * layerNumber);
+            layer_y = y_offset - (23 * layerNumber);
 
             for (int i = 0; i < gridSize; i++)
             {
-                Layer[i, 0] = new Point(x_offset + (x_tile_offset * (i+1)), layer_y + (y_tile_offset * (i + 1)));
+                Layer[i, 0] = new Point(x_offset + (22 * (i+1)), layer_y + (11 * (i + 1)));
             }
 
             for (int i = 0; i < gridSize; i++)
@@ -85,7 +88,7 @@ namespace isometricRenderEngine
                         previousTile = Layer[x, i - 1];
                     }
 
-                    Layer[x,i] = new Point(previousTile.X - x_tile_offset, previousTile.Y + y_tile_offset);
+                    Layer[x,i] = new Point(previousTile.X - 22, previousTile.Y + 11);
                 }
             }
 

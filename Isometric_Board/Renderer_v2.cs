@@ -21,6 +21,8 @@ namespace isometricRenderEngine
 
         public List<RenderComponent> renderOrder = new List<RenderComponent>();
 
+        int playerLayer = 1;
+
         public Renderer_v2()
         {
             loadIsometricTiles();
@@ -34,6 +36,11 @@ namespace isometricRenderEngine
             {
                 component.Render(g);
             }
+<<<<<<< HEAD
+=======
+
+            player.renderComponent.Render(g);
+>>>>>>> parent of 1e710e4... Now 64x64 based compared to the previous 48x48 (nicer to work with more complex shapes) got a basic player going and the bottom tiles are now slabs
         }
 
         private void sortRenderOrder() // Sorts render order to maintain the isometric illusion
@@ -80,25 +87,49 @@ namespace isometricRenderEngine
                 int playerI = 0;
                 int playerX = 0;
 
+<<<<<<< HEAD
                 for (int i = 0; i < grid.gridSize; i++) 
+=======
+                if (layerNumber == playerLayer) // Finds when to paint the player
+                {
+                    for (int i = 0; i < grid.gridSize; i++)
+                    {
+                        for (int x = 0; x < grid.gridSize; x++)
+                        {
+                            if (map[x, i] != "0")
+                            {
+                                playerI = i;
+                                playerX = x;
+                            }
+                        }
+                    }
+                }
+
+                for (int i = 0; i < grid.gridSize; i++)
+>>>>>>> parent of 1e710e4... Now 64x64 based compared to the previous 48x48 (nicer to work with more complex shapes) got a basic player going and the bottom tiles are now slabs
                 {
                     for (int x = 0; x < grid.gridSize; x++)
                     {
                         if (map[x, i] != "0")
                         {
+<<<<<<< HEAD
                             bool tile;
 
                             ID = layerNumber + "-" + "-" + i + "-" + x;
                             if (layerNumber == 0 && halfSlab)
                             {
                                 tile = true;
+=======
+                            if (i == playerI && x == playerX && layerNumber == playerLayer)
+                            {
+                                ID = "P" + layerNumber + "-" + "-" + i + "-" + x;
+>>>>>>> parent of 1e710e4... Now 64x64 based compared to the previous 48x48 (nicer to work with more complex shapes) got a basic player going and the bottom tiles are now slabs
                             }
                             else
                             {
-                                tile = false;
+                                ID = layerNumber + "-" + "-" + i + "-" + x;
                             }
-
-                            tiles.Add(new IsometricTile(layer[x, i], ID, tile));
+                            tiles.Add(new IsometricTile(layer[x, i], ID));
                         }
                     }
 

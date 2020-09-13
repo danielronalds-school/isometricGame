@@ -133,6 +133,7 @@
   <data name="high_res_player_cube" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\high_res_player_cube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+<<<<<<< HEAD
   <data name="large_isometric_cube" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\64x64_isometric_cube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -150,5 +151,12 @@
   </data>
   <data name="_64x64_isometric_tile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\64x64_isometric_tile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+=======
+  <data name="player_cube" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\player_cube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="white_isometric_cube" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\isometric_cube_template.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+>>>>>>> parent of 1e710e4... Now 64x64 based compared to the previous 48x48 (nicer to work with more complex shapes) got a basic player going and the bottom tiles are now slabs
   </data>
 </root>
